@@ -93,3 +93,5 @@ hs_err_pid*
 src/main/resources/
 src/test/
 target/generated-sources/
+/producersconsumers.iml
+/.idea/
