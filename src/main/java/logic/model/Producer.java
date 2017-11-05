@@ -28,7 +28,7 @@ public class Producer implements Runnable {
 //            int numberOfItemsToProduce = rand.nextInt(limit) + 1;
 
             // second option manipulated random
-            int numberOfItemsToProduce = randomizeSmaller() + 1;
+            int numberOfItemsToProduce = (Math.random() > 0.9) ? rand.nextInt(limit - 1) + 1 : rand.nextInt(10) + 1;
 
             List<Object> products = new ArrayList<>();
 
@@ -52,13 +52,5 @@ public class Producer implements Runnable {
         }
         System.out.println("producer stopped.");
 
-    }
-
-    private int randomizeSmaller() {
-        int number = rand.nextInt(limit);
-        if (number < limit * 0.9) {
-            return rand.nextInt(limit / 5);
-        }
-        return rand.nextInt(limit);
     }
 }

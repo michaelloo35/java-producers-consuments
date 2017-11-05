@@ -25,7 +25,7 @@ public class Consumer implements Runnable {
 //            int numberOfItemsToConsume = rand.nextInt(limit) + 1;
 
             // second option manipulated random
-            int numberOfItemsToConsume = randomizeSmaller() + 1;
+            int numberOfItemsToConsume = (Math.random() > 0.9) ? rand.nextInt(limit - 1) + 1 : rand.nextInt(10) + 1;
 
             try {
                 buffer.takeM(numberOfItemsToConsume);

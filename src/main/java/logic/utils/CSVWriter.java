@@ -22,7 +22,7 @@ public class CSVWriter {
 
             // set axis names
 //            writer.write("waiting-time[ms],items-to-consume\n");
-
+            System.out.println("created " + filename + " csv ");
             for (PlotDot pd : consumers) {
                 writer.write(pd.toCSVLine());
             }
@@ -34,6 +34,8 @@ public class CSVWriter {
             chart.setYAxisTitle("wait time[ms]");
 
             BitmapEncoder.saveJPGWithQuality(chart, path + filename + ".jpg", 0.95F);
+            System.out.println("created " + filename + " graph");
+
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        List<Integer> mList = List.of(1000, 10000, 100000);
+        List<Integer> mList = List.of( 100000);
         List<Integer> consumersAndProducers = List.of(10, 100, 1000);
         List<String> bufferTypes = List.of("native", "fair");
 
@@ -66,7 +66,7 @@ public class Main {
         }
 
         // let threads do their job for some time
-        sleep(15000);
+        sleep(30000);
 
         // kill'em all
         consumerThreads.forEach(Thread::interrupt);
@@ -83,8 +83,8 @@ public class Main {
 
         // generate csv
 
-        CSVWriter.generateCSVAndCreatePlot(m, p, c, producersPlotDots, buffer,"Producers");
-        CSVWriter.generateCSVAndCreatePlot(m, p, c, producersPlotDots, buffer,"Consumers");
+        CSVWriter.generateCSVAndCreatePlot(m, p, c, producersPlotDots, buffer, "Producers");
+        CSVWriter.generateCSVAndCreatePlot(m, p, c, producersPlotDots, buffer, "Consumers");
     }
 
 

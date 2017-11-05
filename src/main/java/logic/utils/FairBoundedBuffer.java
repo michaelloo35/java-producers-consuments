@@ -58,6 +58,7 @@ public class FairBoundedBuffer implements Buffer {
             otherProd.signal();
 
             // wake first consumer
+            otherCons.signal();
             firstCons.signal();
 
         } finally {
@@ -76,6 +77,7 @@ public class FairBoundedBuffer implements Buffer {
             }
 
             while (buffer.size() < numberOfItems) {
+                firstProd.signal();
                 firstCons.await();
             }
 
@@ -97,6 +99,7 @@ public class FairBoundedBuffer implements Buffer {
             otherCons.signal();
 
             // wake first producer
+            otherProd.signal();
             firstProd.signal();
             return result;
 
